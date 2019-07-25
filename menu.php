@@ -41,7 +41,7 @@ else
            <a class="nav-link" href="#entregas">Entregas</a>
          </li>
          <li class="nav-item">
-           <a class="nav-link" href="#cobros">Cobros</a>
+           <a class="nav-link" href="#cobros">Control Entregas/Pagos</a>
          </li>
          <li class="nav-item">
            <a class="nav-link" href="#compras">compras</a>
@@ -73,7 +73,7 @@ else
                     <label for="fecha_entrega">Fecha Entrega</label>
                     <input type="date" class="form-control" id="entrega_fechaentrega">
                     <p></p>
-                    <button id="submit" type="button" value="Submit" class="btn btn-primary">Guardar Entrega</button>
+                    <button id="submit-entregas" type="button" value="Submit" class="btn btn-primary">Guardar Entrega</button>
                   </div>
                 </form>
              </div>
@@ -90,12 +90,12 @@ else
                    });
                });
              </script>
-             <!-- insert base datos -->
+             <!-- insert entregas base datos -->
              <script type="text/javascript">
 
                $(document).ready(function(){
 
-               $("#submit").click(function(){
+               $("#submit-entregas").click(function(){
                var entrega_cliente = $("#entrega_cliente").val();
                var entrega_cantidadkg = $("#entrega_cantidadkg").val();
                var entrega_preciokg = $("#entrega_preciokg").val();
@@ -141,25 +141,79 @@ else
 
                <form id="form-compras">
                   <div class="form-group">
-                    <label for="">Seleccionar Cliente</label>
-                    <div class="selector-cliente">
-                      <select id="entrega_cliente" class="form-control form-control-sm"></select>
+                    <label for="compra_cantidad">Cantidad de Cajas</label>
+                    <input type="number" class="form-control" id="compra_cantidad"  placeholder="ingresar cantidad de cajas compradas">
+                    <p></p>
+                    <label for="">Seleccionar Marca</label>
+                    <div class="selector-marca">
+                      <select id="compra_marca" class="form-control form-control-sm">
+                      <option>Tyson</option>
+                      <option>Pecco</option>
+                      <option>Otra</option>
+                      </select>
+                      <p></p>
                     </div>
+                    <label for="compra_preciounidad">Precio Unitario (dolares)</label>
+                    <input type="number" step="0.01" class="form-control" id="compra_preciounidad"  placeholder="ingresar precio en dolares por caja">
                     <p></p>
-                    <label for="cantidadkg">Cantidad Kg</label>
-                    <input type="number" class="form-control" id="entrega_cantidadkg"  placeholder="ingresar cantidad de kg entregados">
+                    <label for="compra_fecha">Fecha de Compra</label>
+                    <input type="date" class="form-control" id="compra_fechacompra">
                     <p></p>
-                    <label for="preciokg">Precio Kg</label>
-                    <input type="number" class="form-control" id="entrega_preciokg"  placeholder="ingresar precio kg en pesos">
-                    <p></p>
-                    <label for="fecha_entrega">Fecha Entrega</label>
-                    <input type="date" class="form-control" id="entrega_fechaentrega">
-                    <p></p>
-                    <button id="submit" type="button" value="Submit" class="btn btn-primary">Guardar Entrega</button>
+                    <label for="">Seleccionar Lugar de Compra</label>
+                    <div class="selector-lugarcompra">
+                      <select id="compra_lugarcompra" class="form-control form-control-sm">
+                      <option>Central Abastos C. Valencia</option>
+                      <option>Central A. Chivas</option>
+                      <option>Chivas Lazaro</option>
+                      <option>Chivas 4ta</option>
+                      <option>Otro</option>
+                      </select>
+                      <p></p>
+                    </div>
+                    <button id="submit-compras" type="button" value="submit" class="btn btn-success">Registrar Compra</button>
                   </div>
                 </form>
 
              </div>
+             <script type="text/javascript">
+
+               $(document).ready(function(){
+
+               $("#submit-compras").click(function(){
+
+               var compra_cantidad = $("#compra_cantidad").val();
+               var compra_marca = $("#compra_marca").val();
+               var compra_preciounidad = $("#compra_preciounidad").val();
+               var compra_fechacompra = $("#compra_fechacompra").val();
+               var compra_lugarcompra = $("#compra_lugarcompra").val();
+               // Returns successful data submission message when the entered information is stored in database.
+               var dataString = 'compra_cantidad1='+ compra_cantidad + '&compra_marca1='+ compra_marca + '&compra_preciounidad1='+ compra_preciounidad + '&compra_fechacompra1='+ compra_fechacompra + '&compra_lugarcompra1=' + compra_lugarcompra;
+               if(compra_cantidad==''||compra_marca==''||compra_preciounidad==''||compra_fechacompra==''||compra_lugarcompra=='')
+               {
+               alert("favor de llenar todos los datos");
+               }
+               else
+               {
+               // AJAX Code To Submit Form.
+               $.ajax({
+                       type: "POST",
+                       url: "ajaxsubmit-compra.php",
+                       data: dataString,
+                       cache: false,
+               success: function(result){
+                 alert(result);
+                 window.location = 'menu.php';
+               }
+
+               });
+               }
+               return false;
+
+               });
+
+               });
+
+             </script>
 
              <div id="historial-entregas" class="container tab-pane fade"><br>
                <h3>Historial Entregas</h3>
