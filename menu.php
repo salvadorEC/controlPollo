@@ -41,7 +41,7 @@ else
            <a class="nav-link" href="#entregas">Entregas</a>
          </li>
          <li class="nav-item">
-           <a class="nav-link" href="#cobros">Control Entregas/Pagos</a>
+           <a class="nav-link" href="#control-pagos">Control Pagos</a>
          </li>
          <li class="nav-item">
            <a class="nav-link" href="#compras">compras</a>
@@ -131,9 +131,40 @@ else
 
              </script>
 
-             <div id="cobros" class="container tab-pane fade"><br>
-               <h3>Cobros</h3>
-               <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+             <div id="control-pagos" class="container tab-pane fade"><br>
+               <h3>Control Pagos</h3>
+               <table class="table table-hover table-dark table-sm">
+              <thead>
+                <tr>
+                  <th class="text-center"scope="col">#</th>
+                  <th class="text-center"scope="col">Cliente</th>
+                  <th class="text-center"scope="col">Fecha Entrega</th>
+                  <th class="text-center"scope="col">Cantidad Kg Entregados</th>
+                  <th class="text-center"scope="col">Precio Kg</th>
+                  <th class="text-center"scope="col">Total a Pagar</th>
+                  <th class="text-center"scope="col">Status</th>
+                  <th class="text-center"scope="col"></th>
+
+                </tr>
+              </thead>
+              <tbody class="tr-entregas">
+
+                <!-- consultar entregas -->
+                <script type="text/javascript">
+                  $(document).ready(function() {
+                      $.ajax({
+                              type: "POST",
+                              url: "getcontrolpagos.php",
+                              success: function(response)
+                              {
+                                  $('.tr-entregas').html(response).fadeIn();
+                              }
+                      });
+                  });
+                </script>
+
+              </tbody>
+              </table>
              </div>
 
              <div id="compras" class="container tab-pane fade"><br>
@@ -163,7 +194,7 @@ else
                     <div class="selector-lugarcompra">
                       <select id="compra_lugarcompra" class="form-control form-control-sm">
                       <option>Central Abastos C. Valencia</option>
-                      <option>Central A. Chivas</option>
+                      <option>Central Abastos Chivas</option>
                       <option>Chivas Lazaro</option>
                       <option>Chivas 4ta</option>
                       <option>Otro</option>
