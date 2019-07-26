@@ -133,27 +133,77 @@ else
 
              <div id="control-pagos" class="container tab-pane fade"><br>
                <h3>Control Pagos</h3>
-               <table class="table table-hover table-dark table-sm">
+               <table class="table table-hover table-sm">
               <thead>
                 <tr>
-                  <th class="text-center"scope="col">#</th>
+                  <th class="text-center"scope="col">Num Entrega</th>
                   <th class="text-center"scope="col">Cliente</th>
                   <th class="text-center"scope="col">Fecha Entrega</th>
                   <th class="text-center"scope="col">Cantidad Kg Entregados</th>
                   <th class="text-center"scope="col">Precio Kg</th>
                   <th class="text-center"scope="col">Total a Pagar</th>
                   <th class="text-center"scope="col">Status</th>
-                  <th class="text-center"scope="col"></th>
-
+                  <th class="text-center"scope="col">Solicitud de Pago</th>
                 </tr>
               </thead>
               <tbody class="tr-entregas">
 
-                <!-- consultar entregas -->
-                <script type="text/javascript">
+              </tbody>
+              <form>
+                <div class="row">
+                  <div class="col">
+                    <input  id="solicitarPago" type="number" class="form-control" placeholder="Ingresar Num Entrega Para Solicitar Pago">
+                  </div>
+                  <div class="col">
+                    <button id="submit-solicitarPago" type="button" class="btn btn-outline-info">Solicitar pago</button>
+                  </div>
+                </div>
+              </form>
+
+              <p></p>
+
+
+              <!-- consultar entregas -->
+              <script type="text/javascript">
+                $(document).ready(function() {
+                    $.ajax({
+                            type: "GET",
+                            url: "getcontrolpagos.php",
+                            success: function(response)
+                            {
+                                $('.tr-entregas').html(response).fadeIn();
+                            }
+                    });
+                });
+              </script>
+              <!-- solicitar pagos -->
+              <script type="text/javascript">
+
+                $(document).ready(function(){
+
+                $("#submit-solicitarPago").click(function(){
+
+                var solicitarPago = $("#solicitarPago").val();
+
+                // Returns successful data submission message when the entered information is stored in database.
+                var dataString = 'solicitarPago1='+ solicitarPago;
+                if(solicitarPago=='')
+                {
+                alert("favor de llenar todos los datos");
+                }
+                else
+                {
+                // AJAX Code To Submit Form.
+                $.ajax({
+                        type: "POST",
+                        url: "ajaxsubmit-solicitarpago.php",
+                        data: dataString,
+                        cache: false,
+                success: function(result){
+                  alert(result);
                   $(document).ready(function() {
                       $.ajax({
-                              type: "POST",
+                              type: "GET",
                               url: "getcontrolpagos.php",
                               success: function(response)
                               {
@@ -161,9 +211,16 @@ else
                               }
                       });
                   });
-                </script>
+                }
+                });
+                }
+                return false;
 
-              </tbody>
+                });
+
+                });
+
+              </script>
               </table>
              </div>
 
