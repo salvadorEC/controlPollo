@@ -30,8 +30,14 @@ else
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
    </head>
    <body>
+     <div class="row">
+       <div class="col-sm-8"></div>
+       <div class="col-sm-4">
+         <a href="/controlPollo/cerrarsesion.php" class="btn btn-primary btn-lg danger" role="button" aria-pressed="true">salir </a>
+       </div>
     <div class="container">
        <h2>Control Pollo</h2>
+
        <!-- Nav tabs -->
        <ul class="nav nav-tabs">
          <li class="nav-item">

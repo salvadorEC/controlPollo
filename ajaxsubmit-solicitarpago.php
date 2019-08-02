@@ -12,13 +12,11 @@ $select = "SELECT * FROM `entregas`" ;
 $result = $controlPollo->query($select);
 
 //verificar si existe solicitud de pago activa
-//verificar si existe solicitud de pago activa
 while ($row = mysqli_fetch_array($result))
   {
     if ($row["id_entrega"] != $solicitarPago2)
     {
-      $a++;
-      
+      //se esta imprimiendo el mensaje n cantidad de veces.
     }
     if ($row["id_entrega"] == $solicitarPago2 && $row["solicitudpago_entrega"] == 'Activa' )
     {
