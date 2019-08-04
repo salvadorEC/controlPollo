@@ -155,7 +155,7 @@ else
               <tbody class="tr-entregas">
 
               </tbody>
-              <form>
+              <form id="solicitarPago">
                 <div class="row">
                   <div class="col">
                     <input  id="solicitarPago" type="number" class="form-control" placeholder="Ingresar Num Entrega Para Solicitar Pago">
@@ -165,10 +165,20 @@ else
                   </div>
                 </div>
               </form>
-
+              <div class="row">
+              </div>
               <p></p>
-
-
+              <form id="efectuarPago">
+                <div class="row">
+                  <div class="col">
+                    <input  id="codigoPago" type="number" class="form-control" placeholder="Ingresar Codigo de Pago">
+                  </div>
+                  <div class="col">
+                    <button id="submit-codigoPago" type="button" class="btn btn-outline-success">Efectuar Pago</button>
+                  </div>
+                </div>
+              </form>
+              <p></p>
               <!-- consultar entregas -->
               <script type="text/javascript">
                 $(document).ready(function() {
@@ -227,6 +237,51 @@ else
                 });
 
               </script>
+              <!-- efectuar pago ingresando el codigoPago-->
+              <script type="text/javascript">
+
+                $(document).ready(function(){
+
+                $("#submit-codigoPago").click(function(){
+
+                var codigoPago = $("#codigoPago").val();
+
+                // Returns successful data submission message when the entered information is stored in database.
+                var dataString = 'codigoPago1='+ codigoPago;
+                if(codigoPago=='')
+                {
+                alert("favor de llenar todos los datos");
+                }
+                else
+                {
+                // AJAX Code To Submit Form.
+                $.ajax({
+                        type: "POST",
+                        url: "ajaxsubmit-efectuarpago.php",
+                        data: dataString,
+                        cache: false,
+                success: function(result){
+                  alert(result);
+                  $(document).ready(function() {
+                      $.ajax({
+                              type: "GET",
+                              url: "getcontrolpagos.php",
+                              success: function(response)
+                              {
+                                  $('.tr-entregas').html(response).fadeIn();
+                              }
+                      });
+                  });
+                }
+                });
+                }
+                return false;
+
+                });
+
+                });
+              </script>
+
               </table>
              </div>
 

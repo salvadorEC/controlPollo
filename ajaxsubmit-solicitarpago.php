@@ -16,17 +16,19 @@ while ($row = mysqli_fetch_array($result))
   {
     if ($row["id_entrega"] != $solicitarPago2)
     {
-      //se esta imprimiendo el mensaje n cantidad de veces.
+      //echo "error";
     }
-    if ($row["id_entrega"] == $solicitarPago2 && $row["solicitudpago_entrega"] == 'Activa' )
+    if ($row["id_entrega"] == $solicitarPago2 && $row["solicitudpago_entrega"] == 'Activa' or $row["solicitudpago_entrega"] == 'Procesada' )
     {
-      echo "ya existe una solicitud de pago activa para esta entrega";
+      echo "Error: \n 1.ya existe una solicitud de pago activa para esta entrega. \n o 2.ya ha sido pagada.";
     }
     if ($row["id_entrega"] == $solicitarPago2 && $row["solicitudpago_entrega"] == 'Inactiva' ) {
 
-      $update = "UPDATE `entregas` SET solicitudpago_entrega = 'Activa' WHERE id_entrega='$solicitarPago2'";
+      $code=rand(1000000,9999999);
+      $update = "UPDATE `entregas` SET solicitudpago_entrega = 'Activa', codigopago_entrega = '".$code."' WHERE id_entrega='$solicitarPago2'";
       $query = $controlPollo->query($update);
       echo "solicitud de pago activa";
     }
+
 
   }

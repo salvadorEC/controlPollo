@@ -14,7 +14,7 @@ $entrega_fechaentrega2=$_POST['entrega_fechaentrega1'];
 
 //Insert query entregas
 $controlPollo->query("INSERT INTO `entregas`(`id_entrega`, `cliente_entrega`, `name_user`, `cantidadkg_entrega`, `preciokg_entrega`, `fecha_entrega`,`solicitudpago_entrega`, `codigopago_entrega`, `statuspago_entrega`)
-VALUES (null,'".$entrega_cliente2."','".$name_user2."','".$entrega_cantidadkg2."','".$entrega_preciokg2."','".$entrega_fechaentrega2."','Inactiva','','No Pagado')");
+VALUES (null,'".$entrega_cliente2."','".$name_user2."','".$entrega_cantidadkg2."','".$entrega_preciokg2."','".$entrega_fechaentrega2."','Inactiva',null,'No Pagado')");
 
 echo "Guardado Con Éxito";
  ?>

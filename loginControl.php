@@ -35,7 +35,7 @@ include "config.php";
 
             }
             else
-              echo "hola cliente";
+              header ("location: menu-cliente.php");
             }
             //usuario o pass incorrectos
             else
