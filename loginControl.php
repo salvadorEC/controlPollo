@@ -33,7 +33,7 @@ include "config.php";
                  $admin = "ok";
                  $_SESSION["mode_user"]=$admin;
 
-                header("location: presupuesto.php");
+                header("location: menu.php");
 
             }
             else

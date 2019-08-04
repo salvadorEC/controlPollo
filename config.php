@@ -8,7 +8,7 @@ ob_start();
   $SERVIDOR = "localhost";
   $USER = "root";
   $PASS = "";
-  $DB = "id10223461_controlpollo";
+  $DB = "id10223461_controlp";
 
  ?>
 

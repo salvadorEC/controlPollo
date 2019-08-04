@@ -53,9 +53,6 @@ else
          <li class="nav-item">
            <a class="nav-link" href="#control-pagos">Control Pagos</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="#compras">compras</a>
-         </li>
        </ul>
            <!-- Tab panes -->
            <div class="tab-content border mb-3">
