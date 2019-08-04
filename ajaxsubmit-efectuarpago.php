@@ -24,11 +24,10 @@ while ($row = mysqli_fetch_array($result))
       $query = $controlPollo->query($update);
       echo "Entrega Pagada Con Éxito";
     }
-    if ($row["codigopago_entrega"]!=$codigoPago2)
-    {
-      echo "Error: \n 1.Código Incorrecto \n 2.Solcitud de Pago Inactiva \n 3.La Entrega Ya Ha Sido Pagada";
-    }
-
+    //if ($row["codigopago_entrega"]!=$codigoPago2)
+    //{
+      //echo "Error: \n 1.Código Incorrecto \n 2.Solcitud de Pago Inactiva \n 3.La Entrega Ya Ha Sido Pagada";
+    //}
   }
 
  ?>

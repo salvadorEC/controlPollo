@@ -140,7 +140,7 @@ else
 
              <div id="control-pagos" class="container tab-pane fade"><br>
                <h3>Control Pagos</h3>
-               <div class="table-responsive text-nowrap">
+               <div class="table-responsive">
                <table class="table table-hover table-fixed w-auto">
               <thead>
                 <tr>
@@ -157,29 +157,26 @@ else
               <tbody class="tr-entregas">
 
               </tbody>
+
               <form id="solicitarPago">
-                <div class="row">
-                  <div class="col">
-                    <input  id="solicitarPago" type="number" class="form-control" placeholder="Ingresar Num Entrega Para Solicitar Pago">
-                  </div>
-                  <div class="col">
-                    <button id="submit-solicitarPago" type="button" class="btn btn-outline-info">Solicitar pago</button>
-                  </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Solicitar Pago</label>
+                  <input id="solicitarPago" type="number" class="form-control" aria-describedby="numero entrega" placeholder="ingresar num entrega">
+                  <small class="form-text text-muted">Ayuda: ingresar correctamente el numero de entrega.</small>
                 </div>
+                <button id="submit-solicitarPago" type="submit" class="btn btn-primary btn-sm btn-block">Solicitar Pago</button>
               </form>
-              <div class="row">
-              </div>
               <p></p>
               <form id="efectuarPago">
-                <div class="row">
-                  <div class="col">
-                    <input  id="codigoPago" type="number" class="form-control" placeholder="Ingresar Codigo de Pago">
-                  </div>
-                  <div class="col">
-                    <button id="submit-codigoPago" type="button" class="btn btn-outline-success">Efectuar Pago</button>
-                  </div>
+                <div class="form-group">
+                  <label for="Efectuar Pago">Efectuar Pago</label>
+                  <input id="codigoPago" type="number" class="form-control" aria-describedby="numero entrega" placeholder="ingresar codigo">
+                  <small class="form-text text-muted">Ayuda: ingresar correctamente el codigo.</small>
                 </div>
+                <button id="submit-codigoPago" type="submit" class="btn btn-success btn-sm btn-block">Efectuar Pago</button>
               </form>
+
+
               <p></p>
               <!-- consultar entregas -->
               <script type="text/javascript">

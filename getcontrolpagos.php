@@ -8,7 +8,7 @@ include "config.php";
 
 //Select en entregas
 $controlPollo = new mysqli($SERVIDOR,$USER,$PASS,$DB);
-$select = "SELECT * FROM `entregas`" ;
+$select = "SELECT * FROM `entregas` order by fecha_entrega asc" ;
 $result = $controlPollo->query($select);
 
 
