@@ -140,17 +140,18 @@ else
 
              <div id="control-pagos" class="container tab-pane fade"><br>
                <h3>Control Pagos</h3>
-               <table class="table table-hover table-sm">
+               <div class="table-responsive text-nowrap">
+               <table class="table table-hover table-fixed w-auto">
               <thead>
                 <tr>
-                  <th class="text-center"scope="col">Num Entrega</th>
-                  <th class="text-center"scope="col">Cliente</th>
-                  <th class="text-center"scope="col">Fecha Entrega</th>
-                  <th class="text-center"scope="col">Cantidad Kg Entregados</th>
-                  <th class="text-center"scope="col">Precio Kg</th>
-                  <th class="text-center"scope="col">Total a Pagar</th>
-                  <th class="text-center"scope="col">Status</th>
-                  <th class="text-center"scope="col">Solicitud de Pago</th>
+                  <th class="text-center th-sm "scope="col">Num Entrega</th>
+                  <th class="text-center th-sm "scope="col">Cliente</th>
+                  <th class="text-center th-sm "scope="col">Fecha Entrega</th>
+                  <th class="text-center th-sm "scope="col">Cantidad Kg Entregados</th>
+                  <th class="text-center th-sm "scope="col">Precio Kg</th>
+                  <th class="text-center th-sm "scope="col">Total a Pagar</th>
+                  <th class="text-center th-sm "scope="col">Status</th>
+                  <th class="text-center th-sm "scope="col">Solicitud de Pago</th>
                 </tr>
               </thead>
               <tbody class="tr-entregas">
@@ -284,6 +285,7 @@ else
               </script>
 
               </table>
+              </div>
              </div>
 
              <div id="compras" class="container tab-pane fade"><br>

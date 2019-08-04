@@ -19,13 +19,13 @@ while ($row = mysqli_fetch_array($result))
     echo '
       <tr>
         <td scope="row">'.$row["id_entrega"].'</td>
-        <td class="text-center">'.$row["cliente_entrega"].'</td>
-        <td class="text-center">'.$date->format('d-m-Y').'</td>
-        <td class="text-center">'.$row["cantidadkg_entrega"].'</td>
-        <td class="text-center">'.$row["preciokg_entrega"].'</td>
-        <td class="text-center">'.$i.'</td>
-        <td class="text-center">'.$row["statuspago_entrega"].'</td>
-        <td class="text-center">'.$row["solicitudpago_entrega"].'</td>
+        <td class="text-center th-sm ">'.$row["cliente_entrega"].'</td>
+        <td class="text-center th-sm ">'.$date->format('d-m-Y').'</td>
+        <td class="text-center th-sm ">'.$row["cantidadkg_entrega"].'</td>
+        <td class="text-center th-sm ">'.$row["preciokg_entrega"].'</td>
+        <td class="text-center th-sm ">'.$i.'</td>
+        <td class="text-center th-sm ">'.$row["statuspago_entrega"].'</td>
+        <td class="text-center th-sm ">'.$row["solicitudpago_entrega"].'</td>
       </tr>';
 
 
