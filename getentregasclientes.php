@@ -1,4 +1,8 @@
 <?php
+ob_start();
+?>
+
+<?php
 session_start();
 include "config.php";
 $name_user2 = $_SESSION["user"];
@@ -27,4 +31,7 @@ while ($row = mysqli_fetch_array($result))
 
 
 
+ ?>
+ <?php
+ ob_end_flush();
  ?>

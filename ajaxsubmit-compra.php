@@ -1,4 +1,8 @@
 <?php
+ob_start();
+?>
+
+<?php
 session_start();
 include "config.php";
 $name_user2 = $_SESSION["user"];
@@ -17,3 +21,7 @@ $controlPollo->query("INSERT INTO `compras`(`id_compra`, `cantidad_compra`, `pre
       VALUES (null,'".$compra_cantidad2."','".$compra_preciounidad2."','".$compra_fechacompra2."','".$compra_lugarcompra2."','".$name_user2."')");
 echo "Guardado Con Éxito";
  ?>
+
+<?php
+ ob_end_flush();
+?>

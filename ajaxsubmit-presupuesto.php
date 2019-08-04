@@ -1,4 +1,9 @@
 <?php
+ob_start();
+?>
+
+
+<?php
 session_start();
 include "config.php";
 $name_user2 = $_SESSION["user"];
@@ -16,3 +21,6 @@ $controlPollo->query("INSERT INTO `presupuestos`(`id_presupuesto`, `fecha_presup
 VALUES (null,'".$presupuesto_fecha2."','".$presupuesto_dolar2."','".$presupuesto_peso2."','".$presupuesto_tipocambio2."','".$name_user2."')");
 
  ?>
+<?php
+ ob_end_flush();
+?>

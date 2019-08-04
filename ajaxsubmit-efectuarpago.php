@@ -1,4 +1,7 @@
 <?php
+ob_start();
+?>
+<?php
 
 session_start();
 include "config.php";
@@ -29,3 +32,6 @@ while ($row = mysqli_fetch_array($result))
   }
 
  ?>
+<?php
+ ob_end_flush();
+?>

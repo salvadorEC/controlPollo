@@ -1,8 +1,11 @@
 <?php
+ob_start();
+?>
+<?php
 session_start();
 include "config.php";
 
- ?>
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +13,7 @@ include "config.php";
     <title></title>
   </head>
   <body>
-    <?php
+<?php
         //Recibir datos de formulario login.
         $user = $_REQUEST['login_user'];
         $pass = $_REQUEST['login_pass'];
@@ -30,23 +33,24 @@ include "config.php";
                  $admin = "ok";
                  $_SESSION["mode_user"]=$admin;
 
-
-                header ("location: presupuesto.php");
+                header("location: presupuesto.php");
 
             }
             else
-              header ("location: menu-cliente.php");
+              header("location: menu-cliente.php");
             }
             //usuario o pass incorrectos
             else
-              header ("location: index.php");
+              header("location: index.php");
 
         }
         //cuando no existe el usuario
         else {
-            header ("location: index.php");
+            header("location: index.php");
         }
-
-     ?>
+?>
   </body>
 </html>
+<?php
+ob_end_flush();
+?>

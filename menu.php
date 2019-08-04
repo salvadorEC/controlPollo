@@ -1,4 +1,8 @@
 <?php
+ob_start();
+?>
+
+<?php
 session_start();
 include "config.php";
 
@@ -33,7 +37,7 @@ else
      <div class="row">
        <div class="col-sm-8"></div>
        <div class="col-sm-4">
-         <a href="/controlPollo/cerrarsesion.php" class="btn btn-primary btn-lg danger" role="button" aria-pressed="true">salir </a>
+         <a href="cerrarsesion.php" class="btn btn-primary btn-lg danger" role="button" aria-pressed="true">salir </a>
        </div>
     <div class="container">
        <h2>Control Pollo</h2>
@@ -394,3 +398,6 @@ else
    </script>
    </body>
  </html>
+ <?php
+ ob_end_flush();
+ ?>

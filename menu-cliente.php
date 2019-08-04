@@ -1,4 +1,9 @@
 <?php
+ob_start();
+?>
+
+
+<?php
 
 session_start();
 include "config.php";
@@ -58,7 +63,10 @@ $name_user2 = $_SESSION["user"];
             });
         });
       </script>
-    
+
     </div>
   </body>
 </html>
+<?php
+ob_end_flush();
+?>

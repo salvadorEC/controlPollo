@@ -1,4 +1,7 @@
 <?php
+ob_start();
+?>
+<?php
 session_start();
 //session_destroy();
 
@@ -97,4 +100,7 @@ else
     header("location: index.php");
   }
 
+ ?>
+ <?php
+ ob_end_flush();
  ?>
