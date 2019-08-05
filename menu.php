@@ -80,7 +80,7 @@ else
                     <label for="fecha_entrega">Fecha Entrega</label>
                     <input type="date" class="form-control" id="entrega_fechaentrega">
                     <p></p>
-                    <button id="submit-entregas" type="button" value="Submit" class="btn btn-primary">Guardar Entrega</button>
+                    <button id="submit-entregas" type="button" value="Submit" class="btn btn-primary btn-sm btn-block">Guardar Entrega</button>
                   </div>
                 </form>
              </div>
@@ -140,19 +140,10 @@ else
 
              <div id="control-pagos" class="container tab-pane fade"><br>
                <h3>Control Pagos</h3>
-               <div class="table-responsive">
-               <table class="table table-hover table-fixed w-auto">
+              <div class="table-responsive">
+               <table class="table">
               <thead>
-                <tr>
-                  <th class="text-center th-sm "scope="col">Num Entrega</th>
-                  <th class="text-center th-sm "scope="col">Cliente</th>
-                  <th class="text-center th-sm "scope="col">Fecha Entrega</th>
-                  <th class="text-center th-sm "scope="col">Cantidad Kg Entregados</th>
-                  <th class="text-center th-sm "scope="col">Precio Kg</th>
-                  <th class="text-center th-sm "scope="col">Total a Pagar</th>
-                  <th class="text-center th-sm "scope="col">Status</th>
-                  <th class="text-center th-sm "scope="col">Solicitud de Pago</th>
-                </tr>
+
               </thead>
               <tbody class="tr-entregas">
 
@@ -363,12 +354,6 @@ else
                });
 
              </script>
-
-             <div id="historial-entregas" class="container tab-pane fade"><br>
-               <h3>Historial Entregas</h3>
-               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-             </div>
-
 
            </div>
          </div>
